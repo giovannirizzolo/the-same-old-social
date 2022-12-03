@@ -17,7 +17,6 @@ export const createPost = async (req, res) => {
             picturePath,
             likes: {},
             comments: [],
-<<<<<<< HEAD
         });
 
         await newPost.save();
@@ -77,16 +76,3 @@ export const likePost = async (req, res) => {
         });
     }
 };
-=======
-        })
-
-        await newPost.save()
-        const post = await Post.find();
-
-        res.status(201).json(post)
-
-    }catch(err){
-        res.status(409).json({message: err.message})
-    }
-}
->>>>>>> 35ee3eff84e893823e0e3b1ab96d40f7fdc6bccb
