@@ -17,7 +17,7 @@ const LoginPage = () => {
 
     return (
         <Box backgroundColor={theme.palette.background.default}>
-            <Box width="100%" backgroundColor={theme.palette.background.alt} p="1erem 6%" textAlign="center">
+            <Box width="100%" backgroundColor={theme.palette.background.alt} p="1rem 6%" textAlign="center">
                 <Typography fontWeight="bold" fontSize="32px" color={theme.palette.primary.main} onClick={() => navigate('/home')} sx={{
                         "&:hover": {
                             color: theme.palette.primary.primaryLight,

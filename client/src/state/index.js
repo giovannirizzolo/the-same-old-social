@@ -26,15 +26,15 @@ export const authSlice = createSlice({
             if(state.user){
                 state.user.friends = action.payload.friends
             } else {
-                console.error("User friens non exitent")
+                console.error("User friends non exitent")
             }
         },
         setPosts: (state, action) => {
-            state.posts = action.state.payload
+            state.posts = action.payload.posts
         },
         setPost: (state, action) => {
-            const updatedPosts = state.map(post => {
-                if(post._id === action.payload.post_id) return action.payload.post;
+            const updatedPosts = state.posts.map(post => {
+                if(post._id === action.payload.post._id) return action.payload.post;
                 return post
             })
             state.posts = updatedPosts

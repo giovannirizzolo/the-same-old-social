@@ -1,12 +1,15 @@
-import { ManageAccountsOutlined, EditOutlined, LocationOnOutlined, WorkOutlineOutlined, RestorePageOutlined } from "@mui/icons-material";
-import { Box, Typography, Divider, useTheme } from "@mui/material";
+import { EditOutlined, LocationOnOutlined, ManageAccountsOutlined, WorkOutlineOutlined } from "@mui/icons-material";
+import { Box, Divider, Typography, useTheme } from "@mui/material";
 
-import UserImage from "../../components/UserImage";
-import FlexBetween from "../../components/FlexBetween";
-import WidgetWrapper from "../../components/WidgetWrapper";
-import { useSelector } from "react-redux";
 import { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import FlexBetween from "../../components/FlexBetween";
+import UserImage from "../../components/UserImage";
+import WidgetWrapper from "../../components/WidgetWrapper";
+
+import linkedInImg from '../../assets/linkedin.png';
+import twitterImg from '../../assets/twitter.png';
 
 const UserWidget = ({userId, picturePath}) => {
     const [user, setUser] = useState(null);
@@ -28,7 +31,9 @@ const UserWidget = ({userId, picturePath}) => {
 
     useEffect(() => {
         getUser()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
+    
 
     if(!user) return null;
     
@@ -51,7 +56,7 @@ const UserWidget = ({userId, picturePath}) => {
                 onClick={() => navigate(`/profile/${userId}`)}
                 >
                 <FlexBetween gap="1rem">
-                <UserImage image={picturePath}></UserImage>
+                <UserImage image={picturePath} />
                 <Box>
                 <Typography
                     variant="h4"
@@ -69,7 +74,7 @@ const UserWidget = ({userId, picturePath}) => {
                     </Typography>
                 </Box>
                 </FlexBetween>
-                <ManageAccountsOutlined />
+                <ManageAccountsOutlined htmlColor={main}/>
                 </FlexBetween>
                 <Divider />
                 {/* SECOND ROW*/}
@@ -99,13 +104,13 @@ const UserWidget = ({userId, picturePath}) => {
                 <Box p="1rem 0">
                     <FlexBetween mb="0.5rem">
                         <Typography color={medium}>Who has viewed ur profile</Typography>
-                        <Typography color={medium} fontWeight="500">
+                        <Typography color={medium} fontWeight="700">
                             {viewedProfile}
                         </Typography>
                     </FlexBetween>
                     <FlexBetween mb="0.5rem">
                         <Typography color={medium}>Impression</Typography>
-                        <Typography color={medium} fontWeight="500">
+                        <Typography color={medium} fontWeight="700">
                             {impressions}
                         </Typography>
                     </FlexBetween>
@@ -118,7 +123,7 @@ const UserWidget = ({userId, picturePath}) => {
                     </Typography>
                     <FlexBetween gap="1rem">
                         <FlexBetween gap="1rem">
-                            <img src="../../../assets/twitter.png" alt="twitter Icon" />
+                            <img src={twitterImg} alt="Twitter Icon" />
                             <Box>
                                 <Typography color={main} fontWeight="500">
                                     Twitter
@@ -135,7 +140,7 @@ const UserWidget = ({userId, picturePath}) => {
 
                     <FlexBetween gap="1rem">
                         <FlexBetween gap="1rem">
-                            <img src="../../../assets/linkedin.png" alt="LinkedIn Icon" />
+                            <img src={linkedInImg} alt="LinkedIn Icon" />
                             <Box>
                                 <Typography color={main} fontWeight="500">
                                     LinkedIn
